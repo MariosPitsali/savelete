@@ -24,5 +24,54 @@
 			"dbaeumer.vscode-eslint",
 			"esbenp.prettier-vscode"
 		]
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "Dev Server",
+				"type": "shell",
+				"command": "npm run dev",
+				"options": {
+					"cwd": "${workspaceFolder:jot}"
+				},
+				"problemMatcher": [],
+				"isBackground": true,
+				"presentation": {
+					"reveal": "always",
+					"panel": "dedicated"
+				}
+			},
+			{
+				"label": "Playwright Tests",
+				"type": "shell",
+				"command": "npx playwright test --ui",
+				"options": {
+					"cwd": "${workspaceFolder:jot}"
+				}
+			},
+			{
+				"label": "Type Check",
+				"type": "shell",
+				"command": "npm run check",
+				"options": {
+					"cwd": "${workspaceFolder:jot}"
+				},
+				"group": "build"
+			}
+		]
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "🔍 Debug Chrome",
+				"type": "chrome",
+				"request": "launch",
+				"url": "http://localhost:5173",
+				"webRoot": "${workspaceFolder:jot}/src",
+				"sourceMaps": true
+			}
+		]
 	}
 }
