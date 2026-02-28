@@ -8,12 +8,11 @@ import { db } from '$lib/server/db';
 export const auth = betterAuth({
 	baseURL: env.ORIGIN,
 	secret: env.BETTER_AUTH_SECRET,
-	database: drizzleAdapter(db, { provider: 'sqlite' }),
 	emailAndPassword: { enabled: true },
 	socialProviders: {
 		github: {
-			clientId: env.GITHUB_CLIENT_ID,
-			clientSecret: env.GITHUB_CLIENT_SECRET
+			clientId: env.GITHUB_CLIENT_ID as string,
+			clientSecret: env.GITHUB_CLIENT_SECRET as string
 		}
 	},
 	plugins: [sveltekitCookies(getRequestEvent)] // make sure this is the last plugin in the array
