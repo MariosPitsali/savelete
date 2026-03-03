@@ -9,9 +9,9 @@
 
 <svelte:head><link rel="icon" href={favicon} /></svelte:head>
 <div class="flex h-screen w-full flex-col items-start justify-start gap-4 p-4">
-	<Header />
+	<Header headerText="SignedInUser" />
 	<main class="w-full flex-1 overflow-auto">
 		{@render children()}
 	</main>
-	<Footer />
+	<Footer copyrightText="&copy; 2024 Your Company" />
 </div>
